@@ -5,6 +5,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 
+"""
 Addresses_TYPES = (
     ('billing', 'Billing Addresses'),
     ('shipping', 'Shipping Addresses'),
@@ -180,3 +181,5 @@ class Favorite(models.Model):
     # Not sure we need this
     # def __str__(self):
     #     return str(self.cust_id)
+
+"""

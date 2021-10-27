@@ -11,8 +11,12 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
+from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from django.http import HttpResponse
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -36,7 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Sandaapp.apps.SandaappConfig',
+    'crispy_forms',
 ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# own
+'users.apps.UsersConfig',
+'crispy_forms',
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -120,4 +130,21 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'home'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
+LOGIN_REDIRECT_URL = 'Sandaapp:home'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGIN_URL = 'login'
+
+from django.core.mail import send_mail
+from django.conf import settings
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'minhvuvlbay@gmail.com'
+EMAIL_HOST_PASSWORD = "Morning@123"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

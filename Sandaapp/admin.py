@@ -1,5 +1,5 @@
 from django.contrib import admin
-
+"""
 from .models import Customer, Product, Orders, Category, Cart, OrderDetails, Favorite, Addresses, Payment
 
 
@@ -27,4 +27,4 @@ admin.site.register(OrderDetails)
 admin.site.register(Cart)
 admin.site.register(Category)
 
-
+"""

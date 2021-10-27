@@ -1,0 +1,10 @@
+{% extends 'Sandaapp/base.html' %}
+{% load crispy_forms_tags %}
+ {% csrf_token %}
+    {% crispy form %}
+{% block content %}
+    <div class="container">
+        <h1>You have been Logged out</h1>
+        <h5><a href="{% url 'Sandaapp:logout' %}">Login In Again</a></h5>
+    </div>
+{% endblock %}

@@ -16,7 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from Sandaapp import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Sandaapp.urls'))
+]
+
+urlpatterns += [
+    path('email/', views.send_email),
+]
+
+urlpatterns += [
+    path('^', include('django.contrib.auth.urls')),
 ]

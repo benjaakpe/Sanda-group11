@@ -1,7 +1,19 @@
 from django import forms
+"""
 from .models import Customer, Product, OrderDetails, Orders, Addresses, Payment, Category, Cart, Favorite
+"""
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
 
+class UserRegisterForm(UserCreationForm):
+    email = forms.EmailField()
+
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']
+
+"""
 class CustomerForm(forms.ModelForm):
     class Meta:
         model = Customer
@@ -25,7 +37,8 @@ class AddressesForm(forms.ModelForm):
     class Meta:
         model = Addresses
         fields = (
-            'name', 'shipping_Addresses', 'billing_Addresses', 'Addresses_line_1', 'Addresses_line_2', 'city', 'country',
+            'name', 'shipping_Addresses', 'billing_Addresses', 'Addresses_line_1', 'Addresses_line_2', 'city',
+            'country',
             'state',
             'postal_code')
 
@@ -42,7 +55,9 @@ class OrdersForm(forms.ModelForm):
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ('product_id', 'category_id', 'product_name', 'product_description', 'product_price', 'product_category', 'product_catalog', 'remaining_quantity')
+        fields = (
+            'product_id', 'category_id', 'product_name', 'product_description', 'product_price', 'product_category',
+            'product_catalog', 'remaining_quantity')
 
 
 class OrderDetailsForm(forms.ModelForm):
@@ -61,3 +76,5 @@ class FavoriteForm(forms.ModelForm):
     class Meta:
         model = Favorite
         fields = ('product_id', 'cust_id')
+
+"""
