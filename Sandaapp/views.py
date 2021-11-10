@@ -4,11 +4,14 @@ from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
+from django.utils import timezone
 
 from Sanda import settings
 from .forms import UserRegisterForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+
+from .models import Customer
 
 
 def home(request):
@@ -53,3 +56,9 @@ def send_email(request):
     send_mail(subject, message, email_from, recipient_list)
     print('send_email')
     return HttpResponse(status=204)
+
+
+def customer_details(request):
+    customer = Customer.objects.filter(created_date__lte=timezone.now())
+    return render(request, 'Sandaapp/customer_details.html', {'customers': customer})
+

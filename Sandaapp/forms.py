@@ -1,4 +1,5 @@
 from django import forms
+from .models import Customer
 """
 from .models import Customer, Product, OrderDetails, Orders, Addresses, Payment, Category, Cart, Favorite
 """
@@ -13,14 +14,14 @@ class UserRegisterForm(UserCreationForm):
         model = User
         fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']
 
-"""
+
 class CustomerForm(forms.ModelForm):
     class Meta:
         model = Customer
-        fields = ('cust_id', 'cust_lastname', 'cust_email', 'city', 'state', 'zipcode', 'phone_number', 'created_date',
-                  'updated_date')
+        fields = ('cust_id', 'cust_firstname', 'cust_lastname', 'cust_email', 'address', 'city', 'state', 'zipcode',
+                  'phone_number', 'created_date')
 
-
+"""
 class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category

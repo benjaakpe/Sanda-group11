@@ -7,6 +7,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     re_path(r'^home/$', views.home, name='home'),
     path('signup/', views.signup, name='signup'),
+    path('customer_details', views.customer_details, name='customer_details'),
     path('login/', auth_view.LoginView.as_view(template_name='Sandaapp/login.html'), name="login"),
     path('logout/', auth_view.LogoutView.as_view(template_name='Sandaapp/logout.html'), name="logout"),
     re_path(r'^password_reset/$', auth_view.PasswordResetView.as_view(
