@@ -20,7 +20,8 @@ from Sandaapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('Sandaapp.urls'))
+    path('', include('Sandaapp.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 urlpatterns += [
