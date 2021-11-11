@@ -1,11 +1,31 @@
 {% extends 'Sandaapp/base.html' %}
+{% load crispy_forms_tags %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
+
+{% block content %}
+    <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Css Style -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css">
 </head>
+
 <body>
+<h1>Featured Categories</h1>
+<div class="container">
+    <div class="col-3">
+        <div class="small-container">
+            <div class="col-3">
+                <img src="{% static 'images/black-hoodie.png' %}">
+            </div>
+            <div class="col_3">
+                <img src="{% static 'images/w.black-hoodie.png' %}">
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
+{% endblock %}

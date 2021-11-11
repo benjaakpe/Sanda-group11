@@ -5,7 +5,7 @@
   background-color: gray;
 }
 
-img {
+.img {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
@@ -205,10 +205,6 @@ background:rgba(255, 227, 208, 0.2);
 .foot-lnk{
 text-align:center;
 }
-
-
-
-
 .signup__overlay {
 position: absolute;
 top: 0;
@@ -217,10 +213,18 @@ width: 100%;
 height: 100%;
 background-color: rgba(0,0,0,.76);
 }
-.container__child {
-width: 50%;
-height: 100%;
-color: #fff;
+.container{
+    max-width: 1300px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 .signup__thumbnail {
 position: relative;
@@ -228,10 +232,8 @@ padding: 2rem;
 display: flex;
 flex-wrap: wrap;
 align-items: center;
-background: url(http://ultraimg.com/images/spectre-login.jpg);
-background-repeat: no-repeat;
-background-position: top center;
-background-size: cover;
+    background: url(https://) no-repeat top center;
+    background-size: cover;
 }
 .thumbnail__logo,
 .thumbnail__content,
@@ -289,3 +291,21 @@ color: #ccc;
   text-decoration: none;
   border-radius: 9px;
 }
+
+.categories{
+   margin: 70px 0;
+ }
+.col-3{
+   flex-basis: 30%;
+   min-width: 450px;
+   margin-bottom: 30px;
+ }
+.col-3 img{
+   width: 200%;
+ }
+.small-container{
+     max-width: 1080px;
+     margin:auto;
+     padding-left: 50px;
+     padding-right: 50px;
+ }
