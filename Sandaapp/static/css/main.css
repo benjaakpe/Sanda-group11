@@ -216,16 +216,11 @@ background-color: rgba(0,0,0,.76);
 .container{
     max-width: 1300px;
     margin: auto;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
-.row{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
+
 .signup__thumbnail {
 position: relative;
 padding: 2rem;
@@ -295,17 +290,24 @@ color: #ccc;
 .categories{
    margin: 70px 0;
  }
-.col-3{
-   flex-basis: 30%;
-   min-width: 450px;
-   margin-bottom: 30px;
- }
-.col-3 img{
-   width: 200%;
- }
+
+h1, h2, h3, h4, h5 , h6 {
+    font-family: 'Ubuntu', sans-serif; font-weight:normal;
+}
+
+.column{
+    flex-basis: 30%;
+    min-width: 250px;
+    margin-bottom: 30px;
+}
+
+.column img{
+    width: 100%;
+}
+
 .small-container{
-     max-width: 1080px;
-     margin:auto;
-     padding-left: 50px;
-     padding-right: 50px;
- }
+    max-width: 1080px;
+    margin: auto;
+    padding-right: 25px;
+    padding-left: 25px;
+}
