@@ -1,11 +1,48 @@
+
 {% extends 'Sandaapp/base.html' %}
+{% load crispy_forms_tags %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
+
+{% block content %}
+    <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Css Style -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css">
 </head>
+
+
 <body>
+<div class="input-group rounded pt-3">
+    <div class="col"> </div>
+    <div class="col-3">
+  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+  aria-describedby="search-addon" />
+  <span class="input-group-text border-0" id="search-addon">
+    <i class="fas fa-search"></i>
+  </span>
+</div>
+<div class="col"> </div>
+</div>
+
+<h1>Featured Categories</h1>
+<div class="container">
+    <div class="col-3">
+        <div class="small-container">
+            <div class="col-3">
+                <img src="{% static 'images/black-hoodie.png' %}">
+            </div>
+            <div class="col_3">
+                <img src="{% static 'images/w.black-hoodie.png' %}">
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
+
+{% endblock %}
+
+
