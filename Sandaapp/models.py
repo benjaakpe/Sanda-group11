@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.utils import timezone
 
 
+
 Addresses_TYPES = (
     ('billing', 'Billing Addresses'),
     ('shipping', 'Shipping Addresses'),
@@ -35,6 +36,7 @@ class Customer(models.Model):
     cust_firstname = models.CharField(max_length=50)
     cust_lastname = models.CharField(max_length=50)
     cust_email = models.EmailField(max_length=100)
+    address = models.CharField(max_length=150)
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     zipcode = models.CharField(max_length=10)
@@ -50,6 +52,28 @@ class Customer(models.Model):
     def updated(self):
         self.updated_date = timezone.now()
         self.save()
+
+
+"""
+
+Payment_STATUS_CHOICES = (
+    ('In progress', 'In progress'),
+    ('Completed', 'Completed'),
+)
+
+Payment_Method_CHOICES = (
+    ('Credit card', 'credit card'),
+    ('Debit card', 'Debit card'),
+)
+
+ORDER_STATUS_CHOICES = (
+    ('created', 'Created'),
+    ('paid', 'Paid'),
+    ('shipped', 'Shipped'),
+    ('refunded', 'Refunded'),
+)
+
+
 
     def __str__(self):
         return str(self.cust_id)
@@ -181,4 +205,5 @@ class Favorite(models.Model):
     # Not sure we need this
     # def __str__(self):
     #     return str(self.cust_id)
+
 
