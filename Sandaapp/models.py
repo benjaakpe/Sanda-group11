@@ -5,7 +5,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 
-"""
+
 Addresses_TYPES = (
     ('billing', 'Billing Addresses'),
     ('shipping', 'Shipping Addresses'),
@@ -117,7 +117,7 @@ class Addresses(models.Model):
 
 
 # Orders table
-class Orders(models.Model):
+class Order(models.Model):
     order_id = models.CharField(max_length=120, primary_key=True)
     cust_id = models.ForeignKey(Customer, on_delete=models.RESTRICT)
     payment_id = models.ForeignKey(Payment, on_delete=models.RESTRICT)
@@ -151,9 +151,9 @@ class Product(models.Model):
 
 
 # Order details table
-class OrderDetails(models.Model):
+class OrderDetail(models.Model):
     order_details_id = models.IntegerField(primary_key=True)
-    order_id = models.ForeignKey(Orders, on_delete=models.CASCADE)
+    order_id = models.ForeignKey(Order, on_delete=models.CASCADE)
     product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
     total_price = models.DecimalField(max_digits=100, decimal_places=2, null=False)
     quantity = models.IntegerField()
@@ -182,4 +182,3 @@ class Favorite(models.Model):
     # def __str__(self):
     #     return str(self.cust_id)
 
-"""

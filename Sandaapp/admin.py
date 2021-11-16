@@ -1,6 +1,6 @@
 from django.contrib import admin
-"""
-from .models import Customer, Product, Orders, Category, Cart, OrderDetails, Favorite, Addresses, Payment
+
+from .models import Customer, Product, Order, Category, Cart, OrderDetail, Favorite, Addresses, Payment
 
 
 class CustomerList(admin.ModelAdmin):
@@ -19,12 +19,11 @@ class ProductList(admin.ModelAdmin):
 
 admin.site.register(Customer, CustomerList)
 admin.site.register(Product, ProductList)
-admin.site.register(Orders)
+admin.site.register(Order)
 admin.site.register(Payment)
 admin.site.register(Addresses)
 admin.site.register(Favorite)
-admin.site.register(OrderDetails)
+admin.site.register(OrderDetail)
 admin.site.register(Cart)
 admin.site.register(Category)
 
-"""
