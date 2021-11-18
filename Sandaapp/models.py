@@ -69,24 +69,6 @@ class Customer(models.Model):
 #     instance.customer.save()
 
 
-Payment_STATUS_CHOICES = (
-    ('In progress', 'In progress'),
-    ('Completed', 'Completed'),
-)
-
-Payment_Method_CHOICES = (
-    ('Credit card', 'credit card'),
-    ('Debit card', 'Debit card'),
-)
-
-ORDER_STATUS_CHOICES = (
-    ('created', 'Created'),
-    ('paid', 'Paid'),
-    ('shipped', 'Shipped'),
-    ('refunded', 'Refunded'),
-)
-
-
 # category table
 class Category(models.Model):
     category_id = models.IntegerField(primary_key=True)

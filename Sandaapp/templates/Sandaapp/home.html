@@ -9,19 +9,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--Css Style -->
     <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
 </head>
 
 <body>
-<h1>Featured Categories</h1>
-<div id="main" class="container">
-      <img src="{% static 'images/black-hoodie.png' %}" style="height:100px;width:100px;float: left">
-  </div>
-    <div class="column">
-        <img src="{% static 'images/w.black-hoodie.png' %}" style="height:100px;width:100px;float: left">
+<div class="small-container">
+        <h3>Feature Products</h3>
+    <div class="row">
+    <div class="col-2">
+            <img class="img" src={% static 'images/black-hoodie.png' %}
+            <h1>Men Hoodie</h1>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
             </div>
-        </div>
+            <p>$45.00</p>
     </div>
-</div>
+        <div class="col-2">
+            <img class="img" src={% static 'images/w.blush-hoodie.png' %}
+            <h1>Women Hoodie</h1>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+            </div>
+            <p>$45.00</p>
+        </div><div class="col-2">
+            <img class="img" src={% static 'images/Cardinal-tshirt.png' %}
+            <h1>Men T-shirt</h1>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+            </div>
+            <p>$25.00</p>
+        </div><div class="col-2">
+            <img class="img" src={% static 'images/w.pink-tshirt.png' %}
+            <h1>Woman T-shirt</h1>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+            </div>
+            <p>$25.00</p>
+        </div>
+        </div>
+
+
+    </div>
+    </div>
+
 </div>
 
 </body>
