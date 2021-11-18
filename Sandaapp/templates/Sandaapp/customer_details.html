@@ -23,6 +23,9 @@
             <thead>
             <tr class="bg-info">
                 <th>Customer Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email Address</th>
                 <th>Address</th>
                 <th>City</th>
                 <th>State</th>
@@ -35,21 +38,24 @@
             </tr>
             </thead>
             <tbody>
-            {% for customer in customers %}
+
                 <tr>
-                    <td>{{ customer.cust_id }}</td>
-                    <td>{{ customer.address }}</td>
-                    <td>{{ customer.city }}</td>
-                    <td>{{ customer.state }}</td>
-                    <td>{{ customer.zipcode }}</td>
-                    <td>{{ customer.phone_number }}</td>
-                    <td>{{ customer.created_date }}</td>
-                    <td>{{ customer.updated_date }}</td>
-                    <td><a href="{% url 'Sandaapp:customer_edit' pk=customer.pk %}" class="btn btn-warning">Edit</a>
+                    <td>{{ user.customer.cust_id }}</td>
+                    <td>{{ user.first_name }}</td>
+                    <td>{{ user.last_name  }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.customer.address }}</td>
+                    <td>{{ user.customer.city }}</td>
+                    <td>{{ user.customer.state }}</td>
+                    <td>{{ user.customer.zipcode }}</td>
+                    <td>{{ user.customer.phone_number }}</td>
+                    <td>{{ user.customer.created_date }}</td>
+                    <td>{{ user.customer.updated_date }}</td>
+{#                    <td><a href="{% url 'Sandaapp:customer_edit' pk=customer.pk %}" class="btn btn-warning">Edit</a>#}
 
 
                 </tr>
-            {% endfor %}
+
             </tbody>
         </table>
 
