@@ -17,7 +17,7 @@ class ProductList(admin.ModelAdmin):
     ordering = ['product_name']
 
 
-admin.site.register(Customer, CustomerList)
+admin.site.register(Customer)
 admin.site.register(Product, ProductList)
 admin.site.register(Order)
 admin.site.register(Payment)

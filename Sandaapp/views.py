@@ -21,15 +21,20 @@ def home(request):
 def signup(request):
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
+        profile_form = CustomerForm(request.POST)
+        if form.is_valid() and profile_form.is_valid():
+            user = form.save()
+            customer_profile = profile_form.save(commit=False)
+            customer_profile.user = user
+            customer_profile.save()
             username = form.cleaned_data.get('email')
             messages.success(request, f'Hi {username}, your account was created successfully')
             return redirect('Sandaapp:home')
     else:
         form = UserRegisterForm()
+        profile_form = CustomerForm()
 
-    return render(request, 'Sandaapp/signup.html', {'form': form})
+    return render(request, 'Sandaapp/signup.html', {'form': form, 'profile_form': profile_form})
 
 
 def login(request):
