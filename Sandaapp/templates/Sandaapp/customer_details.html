@@ -23,9 +23,6 @@
             <thead>
             <tr class="bg-info">
                 <th>Customer Id</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Email</th>
                 <th>Address</th>
                 <th>City</th>
                 <th>State</th>
@@ -41,9 +38,6 @@
             {% for customer in customers %}
                 <tr>
                     <td>{{ customer.cust_id }}</td>
-                    <td>{{ customer.cust_firstname }}</td>
-                    <td>{{ customer.cust_firstname }}</td>
-                    <td>{{ customer.cust_email }}</td>
                     <td>{{ customer.address }}</td>
                     <td>{{ customer.city }}</td>
                     <td>{{ customer.state }}</td>
