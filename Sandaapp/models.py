@@ -54,7 +54,7 @@ class Customer(models.Model):
         self.save()
 
 
-"""
+
 
 Payment_STATUS_CHOICES = (
     ('In progress', 'In progress'),
@@ -75,8 +75,6 @@ ORDER_STATUS_CHOICES = (
 
 
 
-    def __str__(self):
-        return str(self.cust_id)
 
 
 # category table
