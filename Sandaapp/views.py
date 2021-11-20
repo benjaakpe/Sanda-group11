@@ -71,18 +71,22 @@ def customer_details(request):
 
 @login_required
 def customer_edit(request, pk):
-    customer = get_object_or_404(Customer, pk=pk)
+    customer_profile = get_object_or_404(Customer, pk=pk)
     if request.method == "POST":
         # update
-        form = CustomerForm(request.POST, instance=customer)
-        if form.is_valid():
-            customer = form.save(commit=False)
-            customer.updated_date = timezone.now()
-            customer.save()
-            customer = Customer.objects.filter(created_date__lte=timezone.now())
-            return render(request, 'Sandaapp/customer_list.html',
-                          {'customers': customer})
+        form = UserRegisterForm(request.POST)
+        profile_form = CustomerForm(request.POST)
+        if form.is_valid() and profile_form.is_valid():
+            user = form.save()
+            customer_profile = profile_form.save(commit=False)
+            customer_profile.updated_date = timezone.now()
+            customer_profile.user = user
+            customer_profile.save()
+            messages.success(request, 'Your profile was successfully updated!')
+            return render(request, 'Sandaapp/customer_details.html')
+        else:
+            messages.error(request, 'Please correct the error below.')
     else:
-        # edit
-        form = CustomerForm(instance=customer)
-    return render(request, 'Sandaapp/customer_edit.html', {'form': form})
+        form = UserRegisterForm(instance=request.user)
+        profile_form = CustomerForm(instance=request.user.customer)
+    return render(request, 'Sandaapp/customer_details_edit.html', {'form': form, 'profile_form': profile_form})

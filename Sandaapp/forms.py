@@ -19,7 +19,7 @@ class CustomerForm(forms.ModelForm):
     class Meta:
         model = Customer
         fields = ('address', 'city', 'state', 'zipcode',
-                  'phone_number', 'created_date')
+                  'phone_number')
 
 """
 class CategoryForm(forms.ModelForm):

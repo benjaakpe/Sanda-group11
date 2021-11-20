@@ -12,7 +12,7 @@
     <body>
     <style>
         body {
-            background-color: red;
+            background-color: cyan;
         }
     </style>
     <div class="row">
@@ -51,7 +51,7 @@
                     <td>{{ user.customer.phone_number }}</td>
                     <td>{{ user.customer.created_date }}</td>
                     <td>{{ user.customer.updated_date }}</td>
-{#                    <td><a href="{% url 'Sandaapp:customer_edit' pk=customer.pk %}" class="btn btn-warning">Edit</a>#}
+                    <td><a href="{% url 'Sandaapp:customer_edit' pk=user.pk %}" class="btn btn-warning">Edit</a>
 
 
                 </tr>

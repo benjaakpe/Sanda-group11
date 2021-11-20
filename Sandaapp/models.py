@@ -8,8 +8,6 @@ from django.urls import reverse
 from django.utils import timezone
 from django.contrib.auth.models import User
 
-
-
 Addresses_TYPES = (
     ('billing', 'Billing Addresses'),
     ('shipping', 'Shipping Addresses'),
@@ -58,11 +56,11 @@ class Customer(models.Model):
         return str(self.user.username)
 
 
-#
 # @receiver(post_save, sender=User)
 # def create_user_customer(sender, instance, created, **kwargs):
 #     if created:
 #         Customer.objects.create(user=instance)
+#
 #
 # @receiver(post_save, sender=User)
 # def save_user_customer(sender, instance, **kwargs):
@@ -81,7 +79,7 @@ class Category(models.Model):
 
 # payment table
 class Payment(models.Model):
-    payment_id = models.IntegerField(primary_key=True,)
+    payment_id = models.IntegerField(primary_key=True, )
     order_id = models.ForeignKey(Category, on_delete=models.RESTRICT)
     payment_method = models.CharField(max_length=120, choices=Payment_Method_CHOICES)
     payment_status = models.CharField(max_length=120, choices=Payment_STATUS_CHOICES)
@@ -195,5 +193,3 @@ class Favorite(models.Model):
     # Not sure we need this
     # def __str__(self):
     #     return str(self.cust_id)
-
-
