@@ -2,8 +2,11 @@ from django.db import models
 
 # Create your models here.
 # Create your models here.
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.urls import reverse
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 
 
@@ -32,15 +35,13 @@ ORDER_STATUS_CHOICES = (
 
 # Customer table
 class Customer(models.Model):
-    cust_id = models.IntegerField(primary_key=True)
-    cust_firstname = models.CharField(max_length=50)
-    cust_lastname = models.CharField(max_length=50)
-    cust_email = models.EmailField(max_length=100)
+    cust_id = models.AutoField(primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     address = models.CharField(max_length=150)
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
-    zipcode = models.CharField(max_length=10)
-    phone_number = models.CharField(max_length=50)
+    zipcode = models.CharField(max_length=5)
+    phone_number = models.CharField(max_length=10)
     created_date = models.DateTimeField(
         default=timezone.now)
     updated_date = models.DateTimeField(auto_now_add=True)
@@ -53,28 +54,19 @@ class Customer(models.Model):
         self.updated_date = timezone.now()
         self.save()
 
+    def __str__(self):
+        return str(self.user.username)
 
 
-
-Payment_STATUS_CHOICES = (
-    ('In progress', 'In progress'),
-    ('Completed', 'Completed'),
-)
-
-Payment_Method_CHOICES = (
-    ('Credit card', 'credit card'),
-    ('Debit card', 'Debit card'),
-)
-
-ORDER_STATUS_CHOICES = (
-    ('created', 'Created'),
-    ('paid', 'Paid'),
-    ('shipped', 'Shipped'),
-    ('refunded', 'Refunded'),
-)
-
-
-
+#
+# @receiver(post_save, sender=User)
+# def create_user_customer(sender, instance, created, **kwargs):
+#     if created:
+#         Customer.objects.create(user=instance)
+#
+# @receiver(post_save, sender=User)
+# def save_user_customer(sender, instance, **kwargs):
+#     instance.customer.save()
 
 
 # category table
