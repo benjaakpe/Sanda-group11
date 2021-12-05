@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Customer, Product, Order, Category, Cart, OrderDetail, Favorite, Addresses, Payment
+from .models import Customer, Product, Order, Cart, OrderDetail, Favorite, Addresses, Payment
 
 
 class CustomerList(admin.ModelAdmin):
@@ -25,5 +25,4 @@ admin.site.register(Addresses)
 admin.site.register(Favorite)
 admin.site.register(OrderDetail)
 admin.site.register(Cart)
-admin.site.register(Category)
 

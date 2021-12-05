@@ -11,11 +11,13 @@ from .forms import UserRegisterForm, CustomerForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .models import Customer
+from .models import *
 
 
 def home(request):
-    return render(request, 'Sandaapp/home.html', {'Sandaapp': home})
+    products = Product.objects.all()
+    context = {'products': products}
+    return render(request, 'Sandaapp/home.html', context)
 
 
 def signup(request):
@@ -34,6 +36,14 @@ def signup(request):
 
 def login(request):
     return render(request, 'Sandaapp/login.html', {'Sandaapp': login})
+
+
+def cart(request):
+    return render(request, 'Sandaapp/cart.html', {'Sandaapp': cart})
+
+
+def checkout(request):
+    return render(request, 'Sandaapp/checkout.html', {'Sandaapp': checkout})
 
 
 def logout(request):

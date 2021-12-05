@@ -5,8 +5,6 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 
-
-
 Addresses_TYPES = (
     ('billing', 'Billing Addresses'),
     ('shipping', 'Shipping Addresses'),
@@ -54,8 +52,6 @@ class Customer(models.Model):
         self.save()
 
 
-
-
 Payment_STATUS_CHOICES = (
     ('In progress', 'In progress'),
     ('Completed', 'Completed'),
@@ -74,23 +70,9 @@ ORDER_STATUS_CHOICES = (
 )
 
 
-
-
-
-# category table
-class Category(models.Model):
-    category_id = models.IntegerField(primary_key=True)
-    category_name = models.CharField(max_length=50)
-    category_description = models.TextField()
-
-    def __str__(self):
-        return str(self.category_id)
-
-
 # payment table
 class Payment(models.Model):
-    payment_id = models.IntegerField(primary_key=True,)
-    order_id = models.ForeignKey(Category, on_delete=models.RESTRICT)
+    payment_id = models.IntegerField(primary_key=True, )
     payment_method = models.CharField(max_length=120, choices=Payment_Method_CHOICES)
     payment_status = models.CharField(max_length=120, choices=Payment_STATUS_CHOICES)
 
@@ -160,16 +142,22 @@ class Order(models.Model):
 # Product table
 class Product(models.Model):
     product_id = models.IntegerField(primary_key=True)
-    category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
     product_name = models.CharField(max_length=120)
     product_description = models.TextField()
     product_price = models.DecimalField(decimal_places=2, max_digits=20, null=False)
-    product_category = models.CharField(max_length=120)
-    product_catalog = models.CharField(max_length=120, null=False)
+    image = models.ImageField(null=True, blank=True)
     remaining_quantity = models.IntegerField(default=1000)
 
     def __str__(self):
-        return str(self.product_id)
+        return str(self.product_name)
+
+    @property
+    def imageURL(self):
+        try:
+            url = self.image.url
+        except:
+            url = ''
+        return url
 
 
 # Order details table
@@ -203,5 +191,3 @@ class Favorite(models.Model):
     # Not sure we need this
     # def __str__(self):
     #     return str(self.cust_id)
-
-

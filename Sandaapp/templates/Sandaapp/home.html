@@ -15,50 +15,22 @@
 <body>
 <div class="small-container">
         <h3>Feature Products</h3>
-    <div class="row">
-    <div class="col-2">
-            <img class="img" src={% static 'images/black-hoodie.png' %}
+    <div class="row" style="float:left;margin-right:5px;">
+        {% for product in products %}
+    <div class="col-2" >
+            <img class="img"  src="{{ product.image.url }}" >
             <div class="box-element product">
-				<h6><strong>Men Hoodie</strong></h6>
+				<h6><strong>{{ product.product_name }}</strong></h6>
 				<hr>
 
 				<button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
 				<a class="btn btn-outline-success" href="#">View</a>
-				<h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
-    </div>
-        <div class="col-2">
-            <img class="img" src={% static 'images/w.blush-hoodie.png' %}
-            <div class="box-element product">
-				<h6><strong>Woman Hoodie</strong></h6>
-				<hr>
-
-				<button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
-				<a class="btn btn-outline-success" href="#">View</a>
-				<h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
-        </div><div class="col-2">
-            <img class="img" src={% static 'images/Cardinal-tshirt.png' %}
-            <div class="box-element product">
-				<h6><strong>Men T-shirt</strong></h6>
-				<hr>
-
-				<button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
-				<a class="btn btn-outline-success" href="#">View</a>
-				<h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
-        </div><div class="col-2">
-            <img class="img" src={% static 'images/w.pink-tshirt.png' %}
-            <div class="box-element product">
-				<h6><strong>Woman T-shirt</strong></h6>
-				<hr>
-
-				<button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
-				<a class="btn btn-outline-success" href="#">View</a>
-				<h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
-        </div>
-        </div>
-
+				<h4 style="display: inline-block; float: right"><strong>
+                    ${{ product.product_price|floatformat:2 }}</strong></h4>
 
     </div>
     </div>
+        {% endfor %}
 
 </div>
 

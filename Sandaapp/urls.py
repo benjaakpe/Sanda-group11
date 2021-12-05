@@ -24,4 +24,6 @@ urlpatterns = [
     re_path(r'^reset/done/$', auth_view.PasswordResetCompleteView.as_view(
             template_name= "../Sandaapp/password_reset_complete.html"),
             name='password_reset_complete'),
+    path('cart/', views.cart, name="cart"),
+    path('checkout/', views.checkout, name='checkout'),
 ]
