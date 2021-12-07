@@ -135,6 +135,18 @@ class Order(models.Model):
     date_placed = models.DateTimeField(auto_now=True)
     date_shipped = models.DateTimeField(auto_now_add=True)
 
+    @property
+    def get_cart_total(self):
+        orderdetails = self.orderdetail_set.all()
+        total = sum([item.get_total for item in orderdetails])
+        return total
+
+    @property
+    def get_cart_items(self):
+        orderdetails = self.orderdetail_set.all()
+        total = sum([item.quantity for item in orderdetails])
+        return total
+
     def __str__(self):
         return str(self.order_id)
 
@@ -167,6 +179,11 @@ class OrderDetail(models.Model):
     product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
     total_price = models.DecimalField(max_digits=100, decimal_places=2, null=False)
     quantity = models.IntegerField()
+
+    @property
+    def get_total(self):
+        total= self.product.product_price * self.quantity
+        return total
 
     def __str__(self):
         return str(self.order_details_id)

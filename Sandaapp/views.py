@@ -1,4 +1,6 @@
 import email
+from itertools import product
+
 from django.shortcuts import render, get_object_or_404
 from django.core.mail import send_mail
 from django.http import HttpResponse
@@ -43,7 +45,17 @@ def cart(request):
 
 
 def checkout(request):
-    return render(request, 'Sandaapp/checkout.html', {'Sandaapp': checkout})
+    """
+        if request.user.is_authenticated:
+            customer = request.user.customer
+            order, created = Order.objects.get_or_create(customer=customer, complete=False)
+            items = order.orderitem_set.all()
+        else:
+            items = []
+        """
+    context = {}
+
+    return render(request, 'Sandaapp/checkout.html', context)
 
 
 def logout(request):
@@ -91,3 +103,19 @@ def customer_edit(request, pk):
         # edit
         form = CustomerForm(instance=customer)
     return render(request, 'Sandaapp/customer_edit.html', {'form': form})
+
+
+def cart(request):
+    """
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+    else:
+        items = []
+    """
+    context = {}
+
+    return render(request, 'Sandaapp/cart.html', context)
+
+
