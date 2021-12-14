@@ -287,7 +287,7 @@ color: #ccc;
 .row{
     display: flex;
     float: left;
-    width: 33.33%;
+    width: 70%;
     padding: 5px;
 }
 .col-lg-4, .col-lg-6, .col-lg-8, .col-lg-12{
@@ -389,5 +389,5 @@ h2 {
   margin-right: auto;
   width: 50%;
 }
-=======
+
 
