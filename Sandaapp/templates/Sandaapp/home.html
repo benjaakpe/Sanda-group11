@@ -19,7 +19,7 @@
     <div class="cart-row"  style="float:left;margin-right:5px">
         {% for product in products %}
     <div class="col-2" >
-            <img class="img"  src="{{ product.image.url }}" >
+            <img class='img' src="{{ product.image_url|default_if_none:'#' }}" />
             <div class="box-element product">
 				<h6><strong>{{ product.product_name }}</strong></h6>
 				<hr>
