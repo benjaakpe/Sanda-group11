@@ -45,6 +45,10 @@ def login(request):
     return render(request, 'Sandaapp/login.html', {'Sandaapp': login})
 
 
+def about(request):
+    return render(request, 'Sandaapp/about.html', {'Sandaapp': about})
+
+
 def cart(request):
     return render(request, 'Sandaapp/cart.html', {'Sandaapp': cart})
 

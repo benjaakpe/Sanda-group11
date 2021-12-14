@@ -1,0 +1,47 @@
+{% extends 'Sandaapp/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="h1" style="text-align: center;margin-right: 15px">
+    <p>About us<p>
+    <hr>
+    </div>
+    <br><br>
+    <div class="h2" style="text-align: center;margin-right: 15px">
+    <p>Origin</p>
+    </div>
+    <div style="text-align: center;margin-right: 15px">
+        <p>Sanda is a Chinese word that refers to a form of martial which requires perseverance, sustainability, strength,<br>
+    and flexibility. As a upcoming leader in the fashion industry, we seek to apply the values of Sanda into making
+            sustainable and durable clothing items.</p>
+    </div>
+    <br>
+    <div class="h2" style="text-align: center;margin-right: 15px">
+        <p>Meet the Team</p>
+    </div>
+    <div class="cart-row" style="float:left">
+        <div class="col-2" style=";display: block;margin-left: auto;margin-right: auto" >
+            <img class="thumbnail"  src="{% static 'images/blank-image.png' %}">
+            <div class="box-element product">
+				<h6><strong>Anh Nguyen</strong></h6>
+            </div>
+        </div>
+        <div class="col-2" style=";display: block;margin-left: auto;margin-right: auto">
+            <img class="thumbnail"  src="{% static 'images/blank-image.png' %}" >
+            <div class="box-element product">
+				<h6><strong>Akpedje Amoussou</strong></h6>
+            </div>
+        </div>
+        <div class="col-2" style=";display: block;margin-left: auto;margin-right: auto">
+            <img class="thumbnail"  src="{% static 'images/blank-image.png' %}" >
+            <div class="box-element product">
+				<h6><strong>Caleb Miller</strong></h6>
+            </div>
+        </div>
+        <div class="col-2" style=";display: block;margin-left: auto;margin-right: auto">
+            <img class="thumbnail"  src="{% static 'images/blank-image.png' %}" >
+            <div class="box-element product">
+				<h6><strong>Navaneetha Mogulla</strong></h6>
+            </div>
+        </div>
+        </div>
+{% endblock %}

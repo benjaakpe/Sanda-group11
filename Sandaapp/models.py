@@ -173,19 +173,17 @@ class Product(models.Model):
     product_name = models.CharField(max_length=120)
     product_description = models.TextField()
     product_price = models.DecimalField(decimal_places=2, max_digits=20, null=False)
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(null=False, blank=True)
     remaining_quantity = models.IntegerField(default=1000)
 
     def __str__(self):
         return str(self.product_name)
 
+
     @property
-    def imageURL(self):
-        try:
-            url = self.image.url
-        except:
-            url = ''
-        return url
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
 
 
 # Order details table
